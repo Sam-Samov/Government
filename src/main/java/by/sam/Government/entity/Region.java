@@ -10,7 +10,7 @@ public class Region {
 
 
     public Region() {
-        districtsAmount = (int) (5 + Math.random() * 5);
+        districtsAmount = (int) (5 + Math.random() * 20);
         District[] districtsArr = new District[districtsAmount];
         for (int i = 0; i < districtsAmount - 1; i++) {
             District district = new District();

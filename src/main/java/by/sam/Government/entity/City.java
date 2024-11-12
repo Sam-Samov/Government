@@ -7,7 +7,7 @@ public class City {
     public Citizen[] citizensArr;
 
     public City() {
-        cityPopulation = (int) (50 + Math.random() * 500);
+        cityPopulation = (int) (50 + Math.random() * 100000);
         Citizen[] citizensArr = new Citizen[cityPopulation];
         for (int i = 0; i < cityPopulation - 1; i++) {
             Citizen citizen = new Citizen();

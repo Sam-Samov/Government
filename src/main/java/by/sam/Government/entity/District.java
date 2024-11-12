@@ -9,7 +9,7 @@ public class District {
     public City[] citiesArr;
 
     public District() {
-        citiesAmount = (int) (5 + Math.random() * 10);
+        citiesAmount = (int) (5 + Math.random() * 20);
         City[] citiesArr = new City[citiesAmount];
         for (int i = 0; i < citiesAmount - 1; i++) {
             City city = new City();
