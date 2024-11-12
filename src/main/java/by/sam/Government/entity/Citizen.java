@@ -1,5 +1,7 @@
 package by.sam.Government.entity;
 
+import by.sam.Government.Service.Service;
+
 public class Citizen {
     private int id;
     private String name;
@@ -8,9 +10,14 @@ public class Citizen {
     public static int counter = 0;
     private Government government;
 
-    public Citizen () {
-    ++counter;
-    this.id = counter;
+    Service service = new Service();
+
+    public Citizen() {
+        ++counter;
+        id = counter;
+        name = service.generateName();
+        surname = service.generateSurname();
+        age = service.generateAge();
     }
 
     public int getId() {

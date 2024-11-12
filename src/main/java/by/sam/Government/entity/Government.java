@@ -2,7 +2,10 @@ package by.sam.Government.entity;
 
 public class Government {
     public String governmentName;
-    public Region[] regionArr;
+    public String governmentCapital;
+    public int regionsAmount = 0;
+    public int governmentPopulation;
+    public Region[] regionsArr;
 
     private static volatile Government instance;
 
@@ -19,6 +22,18 @@ public class Government {
         return government;
     }
 
+    private Government() {
+        regionsAmount = (int) (2 + Math.random() * 5);
+        Region[] regionsArr = new Region[regionsAmount];
+        for (int i = 0; i < regionsAmount - 1; i++) {
+            Region region = new Region();
+            regionsArr[i] = region;
+            governmentPopulation += region.getRegionPopulation();
+        }
+        governmentPopulation += 2000;
+        this.regionsArr = regionsArr;
+    }
+
     public String getGovernmentName() {
         return governmentName;
     }
@@ -27,28 +42,12 @@ public class Government {
         this.governmentName = governmentName;
     }
 
-    public Region[] getRegionArr() {
-        return regionArr;
+    public Region[] getRegionsArr() {
+        return regionsArr;
     }
 
-    public void setRegionArr(Region[] regionArr) {
-        this.regionArr = regionArr;
-    }
-
-    public District[] getDistrictArr() {
-        return districtArr;
-    }
-
-    public void setDistrictArr(District[] districtArr) {
-        this.districtArr = districtArr;
-    }
-
-    public City[] getCityArr() {
-        return cityArr;
-    }
-
-    public void setCityArr(City[] cityArr) {
-        this.cityArr = cityArr;
+    public String getGovernmentCapital() {
+        return governmentCapital;
     }
 }
 
