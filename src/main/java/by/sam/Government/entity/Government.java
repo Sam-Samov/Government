@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Government {
     public String governmentName;
     public String governmentCapital;
+    public double governmentSquare;
     public int regionsCount;
     public int governmentPopulation;
     public ArrayList<Region> regionsList;
@@ -31,6 +32,7 @@ public class Government {
             Region region = new Region();
             regionsList.add(i, region);
             governmentPopulation += region.getRegionPopulation();
+            governmentSquare += region.regionSquare;
         }
         this.regionsList = regionsList;
     }
@@ -57,6 +59,14 @@ public class Government {
 
     public int getGovernmentPopulation() {
         return governmentPopulation;
+    }
+
+    public void setGovernmentCapital(String governmentCapital) {
+        this.governmentCapital = governmentCapital;
+    }
+
+    public void setGovernmentSquare(double governmentSquare) {
+        this.governmentSquare = governmentSquare;
     }
 }
 

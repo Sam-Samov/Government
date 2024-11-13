@@ -3,54 +3,48 @@ package by.sam.Government.entity;
 import by.sam.Government.Service.Service;
 
 public class Citizen {
-    private int id;
-    private String name;
-    private String surname;
-    private int age;
-    public static int counter = 0;
+    private final int citizenID;
+    private String citizenName;
+    private String citizenSurname;
+    private int citizenAge;
+    private static int counter = 0;
     private Government government;
 
     Service service = new Service();
 
     public Citizen() {
         ++counter;
-        id = counter;
-        name = service.generateName();
-        surname = service.generateSurname();
-        age = service.generateAge();
+        citizenID = counter;
+        citizenName = service.generateName();
+        citizenSurname = service.generateSurname();
+        citizenAge = service.generateAge();
     }
 
-    public int getId() {
-        return id;
+    public int getCitizenID() {
+        return citizenID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getCitizenName() {
+        return citizenName;
     }
 
-    public String getName() {
-        return name;
+    public String getCitizenSurname() {
+        return citizenSurname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getCitizenAge() {
+        return citizenAge;
     }
 
-    public String getSurname() {
-        return surname;
+    public void setCitizenName(String citizenName) {
+        this.citizenName = citizenName;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setCitizenSurname(String citizenSurname) {
+        this.citizenSurname = citizenSurname;
     }
 
-    public int getAge() {
-        return age;
+    public void setCitizenAge(int citizenAge) {
+        this.citizenAge = citizenAge;
     }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-
 }
