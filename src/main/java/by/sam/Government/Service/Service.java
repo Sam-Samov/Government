@@ -42,8 +42,13 @@ public class Service {
     }
 
     public String generateObjectName() {
-        String cityName = "";
-        return cityName;
+        int randWordLength = (int) (4 + Math.random() * 3);
+        StringBuilder s = new StringBuilder();
+        s.append(Character.toString(alfabetRusBig()[(int) (Math.random() * 32)]));
+        for (int j = 1; j < randWordLength; j++) {
+            s.append(Character.toString(alfabetRusSmall()[(int) (Math.random() * 32)]));
+        }
+        return String.valueOf(s);
     }
 
     public int generateSquare() {

@@ -13,7 +13,7 @@ public class Main {
         System.out.println("Количество районов области 1: " + Government.getInstance().getRegionsList().get(0).getDistrictsCount());
         System.out.println("Количество городов района 1: " + Government.getInstance().getRegionsList().get(0).getDistrictsList().get(0).getCitiesCount());
         System.out.println("Количество жителей города 1: " + Government.getInstance().getRegionsList().get(0).getDistrictsList().get(0).getCitiesList().get(0).getCityPopulation());
-        System.out.println("Возраст 1го жителя 1го города 1го района 1ой области: " + Government.getInstance().getRegionsList().get(0).getDistrictsList().get(0).getCitiesList().get(0).getCitizensList().get(0).getCitizenID());
+        System.out.println("Возраст 1го жителя 1го города 1го района 1ой области: " + Government.getInstance().getRegionsList().get(0).getDistrictsList().get(0).getCitiesList().get(0).getCitizensList().get(0).getCitizenAge());
         System.out.println("Имя 1го жителя 1го города 1го района 1ой области: " + Government.getInstance().getRegionsList().get(0).getDistrictsList().get(0).getCitiesList().get(0).getCitizensList().get(0).getCitizenName());
         System.out.println("Имя 1го жителя 1го города 1го района 1ой области: " + Government.getInstance().getRegionsList().get(0).getDistrictsList().get(0).getCitiesList().get(0).getCitizensList().get(1).getCitizenName());
         System.out.println("Количество жителей государства: " + Government.getInstance().governmentPopulation);
