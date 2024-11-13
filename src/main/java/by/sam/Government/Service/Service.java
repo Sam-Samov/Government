@@ -21,38 +21,29 @@ public class Service {
         return alfabet;
     }
 
-    public String generateName() {
-        int randWordLength = (int) (5 + Math.random() * 5);
+    public String generateAbsctractName(int randWordLength) {
         StringBuilder s = new StringBuilder();
-        s.append(Character.toString(alfabetRusBig()[(int) (Math.random() * 32)]));
+        s.append(alfabetRusBig()[(int) (Math.random() * 32)]);
         for (int j = 1; j < randWordLength; j++) {
-            s.append(Character.toString(alfabetRusSmall()[(int) (Math.random() * 32)]));
+            s.append(alfabetRusSmall()[(int) (Math.random() * 32)]);
         }
         return String.valueOf(s);
+    }
+
+    public String generateCitizenName() {
+        return generateAbsctractName((int) (5 + Math.random() * 5));
     }
 
     public String generateSurname() {
-        int randWordLength = (int) (5 + Math.random() * 10);
-        StringBuilder s = new StringBuilder();
-        s.append(Character.toString(alfabetRusBig()[(int) (Math.random() * 32)]));
-        for (int j = 1; j < randWordLength; j++) {
-            s.append(Character.toString(alfabetRusSmall()[(int) (Math.random() * 32)]));
-        }
-        return String.valueOf(s);
+        return generateAbsctractName((int) (5 + Math.random() * 10));
     }
 
     public String generateObjectName() {
-        int randWordLength = (int) (4 + Math.random() * 3);
-        StringBuilder s = new StringBuilder();
-        s.append(Character.toString(alfabetRusBig()[(int) (Math.random() * 32)]));
-        for (int j = 1; j < randWordLength; j++) {
-            s.append(Character.toString(alfabetRusSmall()[(int) (Math.random() * 32)]));
-        }
-        return String.valueOf(s);
+        return generateAbsctractName((int) (4 + Math.random() * 3));
     }
 
     public int generateSquare() {
-        return (int) (Math.random() * 50000);
+        return (int) (1000 + Math.random() * 50000);
     }
 
     public int generateAge() {

@@ -15,7 +15,7 @@ public class Citizen {
     public Citizen() {
         ++counter;
         citizenID = counter;
-        citizenName = service.generateName();
+        citizenName = service.generateCitizenName();
         citizenSurname = service.generateSurname();
         citizenAge = service.generateAge();
     }
