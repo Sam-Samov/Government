@@ -1,24 +1,25 @@
 package by.sam.Government.entity;
 
+import java.util.ArrayList;
+
 public class Region {
     public String regionName;
     public String regionCapital;
     public double regionSquare;
-    public int districtsAmount = 0;
+    public int districtsCount;
     public int regionPopulation;
-    public District[] districtsArr;
+    public ArrayList<District> districtsList;
 
 
     public Region() {
-        districtsAmount = (int) (5 + Math.random() * 20);
-        District[] districtsArr = new District[districtsAmount];
-        for (int i = 0; i < districtsAmount - 1; i++) {
+        districtsCount = (int) (2 + Math.random() * 5);
+        ArrayList<District> districtsList = new ArrayList<>();
+        for (int i = 0; i < districtsCount; i++) {
             District district = new District();
-            districtsArr[i] = district;
+            districtsList.add(i, district);
             regionPopulation += district.getDistrictPopulation();
         }
-        regionPopulation += 1000;
-        this.districtsArr = districtsArr;
+        this.districtsList = districtsList;
     }
 
     public String getRegionName() {
@@ -33,15 +34,15 @@ public class Region {
         return regionSquare;
     }
 
-    public int getDistrictsAmount() {
-        return districtsAmount;
+    public int getDistrictsCount() {
+        return districtsCount;
     }
 
     public int getRegionPopulation() {
         return regionPopulation;
     }
 
-    public District[] getDistrictsArr() {
-        return districtsArr;
+    public ArrayList<District> getDistrictsList() {
+        return districtsList;
     }
 }

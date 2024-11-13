@@ -1,19 +1,21 @@
 package by.sam.Government.entity;
 
+import java.util.ArrayList;
+
 public class City {
     public String cityName;
     public double citySquare;
     public int cityPopulation;
-    public Citizen[] citizensArr;
+    public ArrayList<Citizen> citizensList;
 
     public City() {
         cityPopulation = (int) (50 + Math.random() * 100000);
-        Citizen[] citizensArr = new Citizen[cityPopulation];
-        for (int i = 0; i < cityPopulation - 1; i++) {
+        ArrayList<Citizen> citizensList= new ArrayList<>();
+        for (int i = 0; i < cityPopulation; i++) {
             Citizen citizen = new Citizen();
-            citizensArr[i] = citizen;
+            citizensList.add(i, citizen);
         }
-        this.citizensArr = citizensArr;
+        this.citizensList = citizensList;
     }
 
     public String getCityName() {
@@ -28,7 +30,7 @@ public class City {
         return cityPopulation;
     }
 
-    public Citizen[] getCitizensArr() {
-        return citizensArr;
+    public ArrayList<Citizen> getCitizensList() {
+        return citizensList;
     }
 }

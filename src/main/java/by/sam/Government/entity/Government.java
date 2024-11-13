@@ -1,11 +1,13 @@
 package by.sam.Government.entity;
 
+import java.util.ArrayList;
+
 public class Government {
     public String governmentName;
     public String governmentCapital;
-    public int regionsAmount = 0;
+    public int regionsCount;
     public int governmentPopulation;
-    public Region[] regionsArr;
+    public ArrayList<Region> regionsList;
 
     private static volatile Government instance;
 
@@ -23,15 +25,14 @@ public class Government {
     }
 
     private Government() {
-        regionsAmount = (int) (2 + Math.random() * 5);
-        Region[] regionsArr = new Region[regionsAmount];
-        for (int i = 0; i < regionsAmount - 1; i++) {
+        regionsCount = (int) (2 + Math.random() * 5);
+        ArrayList<Region> regionsList = new ArrayList<>();
+        for (int i = 0; i < regionsCount; i++) {
             Region region = new Region();
-            regionsArr[i] = region;
+            regionsList.add(i, region);
             governmentPopulation += region.getRegionPopulation();
         }
-        governmentPopulation += 2000;
-        this.regionsArr = regionsArr;
+        this.regionsList = regionsList;
     }
 
     public String getGovernmentName() {
@@ -42,12 +43,20 @@ public class Government {
         this.governmentName = governmentName;
     }
 
-    public Region[] getRegionsArr() {
-        return regionsArr;
+    public ArrayList<Region> getRegionsList() {
+        return regionsList;
     }
 
     public String getGovernmentCapital() {
         return governmentCapital;
+    }
+
+    public int getRegionsCount() {
+        return regionsCount;
+    }
+
+    public int getGovernmentPopulation() {
+        return governmentPopulation;
     }
 }
 

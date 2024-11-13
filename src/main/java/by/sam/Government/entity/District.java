@@ -1,23 +1,24 @@
 package by.sam.Government.entity;
 
+import java.util.ArrayList;
+
 public class District {
     public String districtName;
     public String districtCapital;
     public double districtSquare;
-    public int citiesAmount = 0;
+    public int citiesCount;
     public int districtPopulation;
-    public City[] citiesArr;
+    public ArrayList<City> citiesList;
 
     public District() {
-        citiesAmount = (int) (5 + Math.random() * 20);
-        City[] citiesArr = new City[citiesAmount];
-        for (int i = 0; i < citiesAmount - 1; i++) {
+        citiesCount = (int) (5 + Math.random() * 5);
+        ArrayList <City> citiesList= new ArrayList<>();
+        for (int i = 0; i < citiesCount; i++) {
             City city = new City();
-            citiesArr[i] = city;
+            citiesList.add(i, city);
             districtPopulation += city.getCityPopulation();
         }
-        districtPopulation += 100;
-        this.citiesArr = citiesArr;
+        this.citiesList = citiesList;
     }
 
     public String getDistrictName() {
@@ -32,15 +33,15 @@ public class District {
         return districtSquare;
     }
 
-    public int getCitiesAmount() {
-        return citiesAmount;
+    public int getCitiesCount() {
+        return citiesCount;
     }
 
     public int getDistrictPopulation() {
         return districtPopulation;
     }
 
-    public City[] getCitiesArr() {
-        return citiesArr;
+    public ArrayList<City> getCitiesList() {
+        return citiesList;
     }
 }
