@@ -1,11 +1,13 @@
 package by.sam.Government.entity;
 
+import by.sam.Government.Service.Service;
+
 import java.util.ArrayList;
 
 public class Government {
     public String governmentName;
-    public String governmentCapital;
-    public double governmentSquare;
+    public String governmentCapitalName;
+    public int governmentSquare;
     public int regionsCount;
     public int governmentPopulation;
     public ArrayList<Region> regionsList;
@@ -25,6 +27,7 @@ public class Government {
         return government;
     }
 
+    Service service = new Service();
     private Government() {
         regionsCount = (int) (2 + Math.random() * 5);
         ArrayList<Region> regionsList = new ArrayList<>();
@@ -32,9 +35,10 @@ public class Government {
             Region region = new Region();
             regionsList.add(i, region);
             governmentPopulation += region.getRegionPopulation();
-            governmentSquare += region.regionSquare;
+            //governmentSquare += region.getRegionSquare(); см.PrintMenu printMethod3
         }
         this.regionsList = regionsList;
+        governmentCapitalName = service.generateObjectName();
     }
 
     public String getGovernmentName() {
@@ -49,8 +53,8 @@ public class Government {
         return regionsList;
     }
 
-    public String getGovernmentCapital() {
-        return governmentCapital;
+    public String getGovernmentCapitalName() {
+        return governmentCapitalName;
     }
 
     public int getRegionsCount() {
@@ -61,12 +65,16 @@ public class Government {
         return governmentPopulation;
     }
 
-    public void setGovernmentCapital(String governmentCapital) {
-        this.governmentCapital = governmentCapital;
+    public void setGovernmentCapitalName(String governmentCapitalName) {
+        this.governmentCapitalName = governmentCapitalName;
     }
 
-    public void setGovernmentSquare(double governmentSquare) {
+    public void setGovernmentSquare(int governmentSquare) {
         this.governmentSquare = governmentSquare;
+    }
+
+    public int getGovernmentSquare() {
+        return governmentSquare;
     }
 }
 

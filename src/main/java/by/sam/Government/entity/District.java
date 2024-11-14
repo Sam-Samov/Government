@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class District {
     public String districtName;
-    public String districtCapital;
-    public double districtSquare;
+    public String districtCapitalName;
+    public int districtSquare;
     public int citiesCount;
     public int districtPopulation;
     public ArrayList<City> citiesList;
@@ -21,7 +21,7 @@ public class District {
             citiesList.add(i, city);
             districtPopulation += city.getCityPopulation();
             districtName = service.generateObjectName();
-            districtSquare += city.getCitySquare();
+            //districtSquare += city.getCitySquare(); см.PrintMenu printMethod3
         }
         this.citiesList = citiesList;
     }
@@ -30,11 +30,11 @@ public class District {
         return districtName;
     }
 
-    public String getDistrictCapital() {
-        return districtCapital;
+    public String getDistrictCapitalName() {
+        return districtCapitalName;
     }
 
-    public double getDistrictSquare() {
+    public int getDistrictSquare() {
         return districtSquare;
     }
 
@@ -54,11 +54,11 @@ public class District {
         this.districtName = districtName;
     }
 
-    public void setDistrictCapital(String districtCapital) {
-        this.districtCapital = districtCapital;
+    public void setDistrictCapitalName(String districtCapitalName) {
+        this.districtCapitalName = districtCapitalName;
     }
 
-    public void setDistrictSquare(double districtSquare) {
+    public void setDistrictSquare(int districtSquare) {
         this.districtSquare = districtSquare;
     }
 }

@@ -1,15 +1,6 @@
 package by.sam.Government.Service;
 
 public class Service {
-    public char[] alfabetRusBig() {
-        char[] alfabet = new char[32];
-        char sign = 'А';
-        int i = 0;
-        while (sign <= 'Я') {
-            alfabet[i++] = sign++;
-        }
-        return alfabet;
-    }
 
     public char[] alfabetRusSmall() {
         char[] alfabet = new char[32];
@@ -23,7 +14,7 @@ public class Service {
 
     public String generateAbsctractName(int randWordLength) {
         StringBuilder s = new StringBuilder();
-        s.append(alfabetRusBig()[(int) (Math.random() * 32)]);
+        s.append(Character.toUpperCase(alfabetRusSmall()[(int) (Math.random() * 32)]));
         for (int j = 1; j < randWordLength; j++) {
             s.append(alfabetRusSmall()[(int) (Math.random() * 32)]);
         }

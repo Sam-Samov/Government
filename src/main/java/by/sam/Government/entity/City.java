@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class City {
     public String cityName;
-    public double citySquare;
+    public int citySquare;
     public int cityPopulation;
     public ArrayList<Citizen> citizensList;
 
@@ -18,7 +18,7 @@ public class City {
             Citizen citizen = new Citizen();
             citizensList.add(i, citizen);
             cityName = service.generateObjectName();
-            citySquare = service.generateSquare();
+            //citySquare = service.generateSquare(); см.PrintMenu printMethod3
         }
         this.citizensList = citizensList;
     }
@@ -27,7 +27,7 @@ public class City {
         return cityName;
     }
 
-    public double getCitySquare() {
+    public int getCitySquare() {
         return citySquare;
     }
 
@@ -43,7 +43,7 @@ public class City {
         this.cityName = cityName;
     }
 
-    public void setCitySquare(double citySquare) {
+    public void setCitySquare(int citySquare) {
         this.citySquare = citySquare;
     }
 }
