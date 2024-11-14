@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         Government.getInstance();
         Government.getInstance().setGovernmentName("Лапландия");
-        /*Service service = new Service();
+        /* Service service = new Service();
         System.out.println("Название государства: " + Government.getInstance().getGovernmentName());
         System.out.println("Количество областей государства: " + Government.getInstance().getRegionsCount());
         System.out.println("Количество районов области 1: " + Government.getInstance().getRegionsList().get(0).getDistrictsCount());

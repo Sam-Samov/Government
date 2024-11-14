@@ -77,4 +77,3 @@ public class Government {
         return governmentSquare;
     }
 }
-
