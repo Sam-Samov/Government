@@ -1,7 +1,7 @@
 package by.sam.Government;
 
-import by.sam.Government.Service.PrintMenu;
-import by.sam.Government.Service.Service;
+import by.sam.Government.Services.PrintMenu;
+//import by.sam.Government.Services.Service;
 import by.sam.Government.entity.Government;
 
 import java.util.Scanner;
@@ -10,8 +10,8 @@ public class Main {
     public static void main(String[] args) {
         Government.getInstance();
         Government.getInstance().setGovernmentName("Лапландия");
-        Service service = new Service();
-        /*System.out.println("Название государства: " + Government.getInstance().getGovernmentName());
+        /*Service service = new Service();
+        System.out.println("Название государства: " + Government.getInstance().getGovernmentName());
         System.out.println("Количество областей государства: " + Government.getInstance().getRegionsCount());
         System.out.println("Количество районов области 1: " + Government.getInstance().getRegionsList().get(0).getDistrictsCount());
         System.out.println("Количество городов района 1: " + Government.getInstance().getRegionsList().get(0).getDistrictsList().get(0).getCitiesCount());

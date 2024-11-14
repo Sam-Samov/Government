@@ -1,6 +1,6 @@
 package by.sam.Government.entity;
 
-import by.sam.Government.Service.Service;
+import by.sam.Government.Services.Service;
 
 public class Citizen {
     private final int citizenID;

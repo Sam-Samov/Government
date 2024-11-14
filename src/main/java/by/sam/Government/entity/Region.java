@@ -1,13 +1,13 @@
 package by.sam.Government.entity;
 
-import by.sam.Government.Service.Service;
+import by.sam.Government.Services.Service;
 
 import java.util.ArrayList;
 
 public class Region {
     public String regionName;
-    public String regionCapital;
-    public double regionSquare;
+    public String regionCapitalName;
+    public int regionSquare;
     public int districtsCount;
     public int regionPopulation;
     public ArrayList<District> districtsList;
@@ -21,7 +21,7 @@ public class Region {
             districtsList.add(i, district);
             regionPopulation += district.getDistrictPopulation();
             regionName = service.generateObjectName();
-            regionSquare += district.getDistrictSquare();
+            //regionSquare += district.getDistrictSquare(); см.PrintMenu printMethod3
         }
         this.districtsList = districtsList;
     }
@@ -30,11 +30,11 @@ public class Region {
         return regionName;
     }
 
-    public String getRegionCapital() {
-        return regionCapital;
+    public String getRegionCapitalName() {
+        return regionCapitalName;
     }
 
-    public double getRegionSquare() {
+    public int getRegionSquare() {
         return regionSquare;
     }
 
@@ -54,11 +54,11 @@ public class Region {
         this.regionName = regionName;
     }
 
-    public void setRegionCapital(String regionCapital) {
-        this.regionCapital = regionCapital;
+    public void setRegionCapitalName(String regionCapitalName) {
+        this.regionCapitalName = regionCapitalName;
     }
 
-    public void setRegionSquare(double regionSquare) {
+    public void setRegionSquare(int regionSquare) {
         this.regionSquare = regionSquare;
     }
 }
