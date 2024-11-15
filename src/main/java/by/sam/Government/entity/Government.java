@@ -5,11 +5,11 @@ import by.sam.Government.Services.Service;
 import java.util.ArrayList;
 
 public class Government {
-    public String governmentName;
-    public String governmentCapitalName;
-    public int governmentSquare;
-    public int regionsCount;
-    public int governmentPopulation;
+    private String governmentName;
+    private String governmentCapitalName;
+    private int governmentSquare;
+    private int regionsCount;
+    private int governmentPopulation;
     public ArrayList<Region> regionsList;
 
     private static volatile Government instance;
@@ -34,8 +34,8 @@ public class Government {
         for (int i = 0; i < regionsCount; i++) {
             Region region = new Region();
             regionsList.add(i, region);
-            governmentPopulation += region.getRegionPopulation();
             //governmentSquare += region.getRegionSquare(); см.PrintMenu printMethod3
+            //governmentPopulation += region.getRegionPopulation(); см.PrintMenu printMethod5
         }
         this.regionsList = regionsList;
         governmentCapitalName = service.generateObjectName();
@@ -57,6 +57,10 @@ public class Government {
         return governmentCapitalName;
     }
 
+    public void setGovernmentCapitalName(String governmentCapitalName) {
+        this.governmentCapitalName = governmentCapitalName;
+    }
+
     public int getRegionsCount() {
         return regionsCount;
     }
@@ -65,15 +69,15 @@ public class Government {
         return governmentPopulation;
     }
 
-    public void setGovernmentCapitalName(String governmentCapitalName) {
-        this.governmentCapitalName = governmentCapitalName;
-    }
-
-    public void setGovernmentSquare(int governmentSquare) {
-        this.governmentSquare = governmentSquare;
+    public void setGovernmentPopulation(int governmentPopulation) {
+        this.governmentPopulation = governmentPopulation;
     }
 
     public int getGovernmentSquare() {
         return governmentSquare;
+    }
+
+    public void setGovernmentSquare(int governmentSquare) {
+        this.governmentSquare = governmentSquare;
     }
 }

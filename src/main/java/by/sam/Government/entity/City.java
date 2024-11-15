@@ -5,9 +5,9 @@ import by.sam.Government.Services.Service;
 import java.util.ArrayList;
 
 public class City {
-    public String cityName;
-    public int citySquare;
-    public int cityPopulation;
+    private String cityName;
+    private int citySquare;
+    private int cityPopulation;
     public ArrayList<Citizen> citizensList;
 
     Service service = new Service();

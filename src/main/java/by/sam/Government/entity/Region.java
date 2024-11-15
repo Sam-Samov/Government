@@ -5,11 +5,11 @@ import by.sam.Government.Services.Service;
 import java.util.ArrayList;
 
 public class Region {
-    public String regionName;
-    public String regionCapitalName;
-    public int regionSquare;
-    public int districtsCount;
-    public int regionPopulation;
+    private String regionName;
+    private String regionCapitalName;
+    private int regionSquare;
+    private int districtsCount;
+    private int regionPopulation;
     public ArrayList<District> districtsList;
 
     Service service = new Service();
@@ -19,9 +19,10 @@ public class Region {
         for (int i = 0; i < districtsCount; i++) {
             District district = new District();
             districtsList.add(i, district);
-            regionPopulation += district.getDistrictPopulation();
             regionName = service.generateObjectName();
+            regionCapitalName = service.generateObjectName();
             //regionSquare += district.getDistrictSquare(); см.PrintMenu printMethod3
+            //regionPopulation += district.getDistrictPopulation(); см.PrintMenu printMethod5
         }
         this.districtsList = districtsList;
     }

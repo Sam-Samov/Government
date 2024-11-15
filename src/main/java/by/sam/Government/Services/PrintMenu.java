@@ -1,10 +1,6 @@
 package by.sam.Government.Services;
 
-import by.sam.Government.entity.City;
-import by.sam.Government.entity.District;
-import by.sam.Government.entity.Region;
-import by.sam.Government.entity.Government;
-
+import by.sam.Government.entity.*;
 import java.util.ArrayList;
 
 public class PrintMenu {
@@ -24,25 +20,40 @@ public class PrintMenu {
 
     public void printMethod(int printMethod) {
         switch (printMethod) {
-            case (1): printMethod1(); break;
-            case (2): printMethod2(); break;
-            case (3): printMethod3(); break;
-            case (4): printMethod4(); break;
-            case (5): printMethod5(); break;
-            case (6): printMethod6(); break;
-            case (7): printMethod7(); break;
+            case (1):
+                printMethod1();
+                break;
+            case (2):
+                printMethod2();
+                break;
+            case (3):
+                printMethod3();
+                break;
+            case (4):
+                printMethod4();
+                break;
+            case (5):
+                printMethod5();
+                break;
+            case (6):
+                printMethod6();
+                break;
+            case (7):
+                printMethod7();
+                break;
         }
         System.out.println("_______________________________________________________________");
         System.out.println();
     }
+
     //столица государства
     public void printMethod1() {
-        System.out.println(Government.getInstance().getGovernmentCapitalName());
+        System.out.println("\nСтолица государства: " + Government.getInstance().getGovernmentCapitalName());
     }
 
     //количество областей
     public void printMethod2() {
-        System.out.println(Government.getInstance().getRegionsCount());
+        System.out.println("\nКоличество областей: " + Government.getInstance().getRegionsCount());
     }
 
     /*Площадь государства здорового человека
@@ -50,15 +61,15 @@ public class PrintMenu {
         System.out.println(Government.getInstance().getGovernmentSquare());
     }*/
 
-    /*Площадь государства курильщика (это полный бред, но таково условие задачи: площадь должна считаться по вызову
+    /*"Площадь государства" курильщика (это полный бред, но таково условие задачи: площадь должна считаться по вызову
     метода из консоли, а не заранее при создании объектов. В итоге заново гоняем все циклы, но в одном месте, штош...)
     PS. По условию задачи сэтать площади объектам не требуется, нужна только общая площадь, но пусть всё-таки будет.....*/
     public void printMethod3() {
-        ArrayList<Region> regionsList = Government.getInstance().getRegionsList();
         int governmentSquare = 0;
         int sumRegionSquare = 0;
         int sumDistrictSquare = 0;
         int sumCitySquare = 0;
+        ArrayList<Region> regionsList = Government.getInstance().getRegionsList();
         for (int i = 0; i < regionsList.size(); i++) {
             ArrayList<District> districtsList = Government.getInstance().getRegionsList().get(i).getDistrictsList();
             for (int j = 0; j < districtsList.size(); j++) {
@@ -74,25 +85,52 @@ public class PrintMenu {
             governmentSquare = sumRegionSquare += regionsList.get(i).getRegionSquare();
         }
         Government.getInstance().setGovernmentSquare(governmentSquare);
-        System.out.println(Government.getInstance().getGovernmentSquare() + " км2");
+        System.out.println("\nПлощадь государства: " + Government.getInstance().getGovernmentSquare() + " км2");
     }
 
     //список областных центров
     public void printMethod4() {
-        System.out.println("Method 4");
+        ArrayList<Region> regionsArrayList = Government.getInstance().getRegionsList();
+        ArrayList<String> regionsCapitalsArrayList = new ArrayList<>();
+        for (Region region : regionsArrayList) {
+            regionsCapitalsArrayList.add(region.getRegionCapitalName());
+        }
+        System.out.println("\nСписок областных центров:\n" + regionsCapitalsArrayList);
     }
 
-    //средний возраст жителей
+    /*"средний возраст жителей" здорового человека
+    public void printMethod3() {
+        System.out.println(Government.getInstance().getGovernmentPopulation());
+    }*/
+
+    //"средний возраст жителей" курильщика (см.printMethod3)
     public void printMethod5() {
-        System.out.println("Method 5");
+        int countCitizens = Government.getInstance().getRegionsList().getLast().getDistrictsList().getLast().getCitiesList().getLast().getCitizensList().getLast().getCitizenID();
+        double midAge = 0;
+        int sumCityAge = 0;
+        ArrayList<Region> regionsList = Government.getInstance().getRegionsList();
+        for (int i = 0; i < regionsList.size(); i++) {
+            ArrayList<District> districtsList = Government.getInstance().getRegionsList().get(i).getDistrictsList();
+            for (int j = 0; j < districtsList.size(); j++) {
+                ArrayList<City> citiesList = Government.getInstance().getRegionsList().get(i).getDistrictsList().get(j).getCitiesList();
+                for (int k = 0; k < citiesList.size(); k++) {
+                    ArrayList<Citizen> citizensList = Government.getInstance().getRegionsList().get(i).getDistrictsList().get(j).getCitiesList().get(k).getCitizensList();
+                    for (Citizen citizen : citizensList)
+                        sumCityAge += citizen.getCitizenAge();
+                }
+            }
+            midAge = (double) sumCityAge / countCitizens;
+        }
+        System.out.println("\nКоличество жителей государства: " + countCitizens + "\nСредний возраст жителей: " + midAge);
     }
 
     //список жителей, у которых имя состоит из <...> букв
     public void printMethod6() {
-        System.out.println("Method 6");
+        System.out.println("\nСписок жителей, у которых имя состоит из <...> букв: ");
     }
-     //список жителей, у которых имя начинается с буквы <...>
+
+    //список жителей, у которых имя начинается с буквы <...>
     public void printMethod7() {
-        System.out.println("Method 7");
+        System.out.println("\nСписок жителей, у которых имя начинается с буквы <...>: ");
     }
 }
