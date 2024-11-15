@@ -1,5 +1,9 @@
 package by.sam.Government.Services;
 
+import by.sam.Government.entity.*;
+
+import java.util.ArrayList;
+
 public class Service {
 
     public char[] alphabetRusSmall() {
@@ -39,5 +43,21 @@ public class Service {
 
     public int generateAge() {
         return (int) (1 + Math.random() * 70);
+    }
+
+    public ArrayList<Citizen> getAllCitizensArrayList() {
+        ArrayList<Citizen> allCitizensArrayList = new ArrayList<>();
+        ArrayList<Region> regionsList = Government.getInstance().getRegionsList();
+        for (int i = 0; i < regionsList.size(); i++) {
+            ArrayList<District> districtsList = Government.getInstance().getRegionsList().get(i).getDistrictsList();
+            for (int j = 0; j < districtsList.size(); j++) {
+                ArrayList<City> citiesList = Government.getInstance().getRegionsList().get(i).getDistrictsList().get(j).getCitiesList();
+                for (int k = 0; k < citiesList.size(); k++) {
+                    ArrayList<Citizen> citizensList = Government.getInstance().getRegionsList().get(i).getDistrictsList().get(j).getCitiesList().get(k).getCitizensList();
+                    allCitizensArrayList.addAll(citizensList);
+                }
+            }
+        }
+        return allCitizensArrayList;
     }
 }
