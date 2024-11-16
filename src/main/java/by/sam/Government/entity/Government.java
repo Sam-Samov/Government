@@ -84,8 +84,8 @@ public class Government {
                 "\nКоличество областей: " + getInstance().getRegionsList().size() +
                 "\nКоличество районов: " + service.getAllDistrictsArrayList().size() +
                 "\nКоличество городов: " + service.getAllCitiesArrayList().size() +
-                "\nПлощадь: " + service.getAllCitizensArrayList().size() +
-                "\nКоличество жителей: " + service.getAllCitizensArrayList().size() +
+                "\nПлощадь: " + service.getAllCitizensArrayList().size() + " км2" +
+                "\nКоличество жителей: " + service.getAllCitizensArrayList().size() + " человек" +
                 "\n________________________________________";
     }
 }

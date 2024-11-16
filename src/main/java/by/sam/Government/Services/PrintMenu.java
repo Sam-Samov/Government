@@ -2,8 +2,6 @@ package by.sam.Government.Services;
 
 import by.sam.Government.entity.*;
 
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,7 +11,7 @@ public class PrintMenu {
     public void printMenu() {
         System.out.println("""
                 Введите номер команды для вывода информации:
-                1 - столица государства;
+                1 - сводная информация "Государство";
                 2 - количество областей;
                 3 - площадь государства;
                 4 - список областных центров;
@@ -52,6 +50,7 @@ public class PrintMenu {
 
     //Сводная информация "Государство"
     public void printMethod1() {
+        System.out.println("Сводная информация 'Государство'");
         System.out.println(Government.getInstance());
     }
 

@@ -5,10 +5,8 @@ import by.sam.Government.entity.*;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Service {
-    Service service = new Service();
 
     public char[] alphabetRusSmall() {
         char[] alphabet = new char[32];
@@ -88,7 +86,7 @@ public class Service {
     //"Площадь государства" курильщика
     public double governmentSquare() {
         int governmentSquare = 0;
-        ArrayList<City> cityArrayList = service.getAllCitiesArrayList();
+        ArrayList<City> cityArrayList = getAllCitiesArrayList();
         for (City city : cityArrayList) {
             governmentSquare += city.getCitySquare();
         }
@@ -112,9 +110,9 @@ public class Service {
 
     //"средний возраст жителей" курильщика
     public double midAge() {
-        int countCitizens = service.getAllCitizensArrayList().size();
+        int countCitizens = getAllCitizensArrayList().size();
         int sumCityAge = 0;
-        ArrayList<Citizen> citizensList = service.getAllCitizensArrayList();
+        ArrayList<Citizen> citizensList = getAllCitizensArrayList();
         for (Citizen citizen : citizensList)
             sumCityAge += citizen.getCitizenAge();
         DecimalFormatSymbols separator = new DecimalFormatSymbols();
@@ -125,7 +123,7 @@ public class Service {
 
     //Список жителей, у которых имя состоит из <...> букв
     public ArrayList<Citizen> citizenNameLengthN(int n) {
-        ArrayList<Citizen> citizensList = service.getAllCitizensArrayList();
+        ArrayList<Citizen> citizensList = getAllCitizensArrayList();
         ArrayList<Citizen> citizenNameLengthNList = new ArrayList<>();
         for (Citizen citizen : citizensList) {
             int citizenNameLengthCurrent = citizen.getCitizenName().length();
@@ -138,7 +136,7 @@ public class Service {
 
     //Список жителей, у которых имя начинается с буквы <...>
     public ArrayList<Citizen> citizenNameFirstList(String letter) {
-        ArrayList<Citizen> citizensList = service.getAllCitizensArrayList();
+        ArrayList<Citizen> citizensList = getAllCitizensArrayList();
         ArrayList<Citizen> citizenNameFirstList = new ArrayList<>();
         String citizenNameFirstCurrent;
         for (Citizen citizen : citizensList) {

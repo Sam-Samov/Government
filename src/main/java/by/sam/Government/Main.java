@@ -8,10 +8,12 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Government.getInstance();
-        Government.getInstance().setGovernmentName("Лапландия");
-
         PrintMenu menu = new PrintMenu();
         Scanner sc = new Scanner(System.in);
+        System.out.println("Введите название государства: ");
+        Government.getInstance().setGovernmentName(sc.next());
+        sc.nextLine();
+        System.out.println();
         while (true) {
             menu.printMenu();
             menu.printMethod(sc.nextInt());
