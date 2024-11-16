@@ -47,4 +47,14 @@ public class Citizen {
     public void setCitizenAge(int citizenAge) {
         this.citizenAge = citizenAge;
     }
+
+    @Override
+    public String toString() {
+        return "\nЖитель" +
+                "\nID: " + citizenID +
+                "\nИмя: " + citizenName +
+                "\nФамилия: " + citizenSurname +
+                "\nВозраст: " + citizenAge +
+                "\n_________________________________";
+    }
 }

@@ -46,4 +46,11 @@ public class City {
     public void setCitySquare(int citySquare) {
         this.citySquare = citySquare;
     }
+
+    @Override
+    public String toString() {
+        return "\nГород " + cityName +
+                "\nНаселение: " + cityPopulation +
+                "\n__________________________________";
+    }
 }

@@ -62,4 +62,12 @@ public class Region {
     public void setRegionSquare(int regionSquare) {
         this.regionSquare = regionSquare;
     }
+
+    @Override
+    public String toString() {
+        return "\nОбласть " + regionName +
+                "\nОбластной центр: " + regionCapitalName +
+                "\nКоличество районов: " + districtsCount +
+                "\n__________________________________________________";
+    }
 }

@@ -53,11 +53,12 @@ public class PrintMenu {
     //столица государства
     public void printMethod1() {
         System.out.println("\nСтолица государства: " + Government.getInstance().getGovernmentCapitalName());
+        //System.out.println(Government.getInstance());
     }
 
     //количество областей
     public void printMethod2() {
-        System.out.println("\nКоличество областей: " + Government.getInstance().getRegionsCount());
+        System.out.println("\nКоличество областей: " + Government.getInstance().getRegionsList().size());
     }
 
     /*Площадь государства здорового человека
@@ -136,6 +137,7 @@ public class PrintMenu {
             }
         }
         System.out.println("\nСписок жителей, у которых имя состоит из <...> букв:\n" + citizenNameLengthNList);
+        System.out.println("\nКоличество данных жителей:  " + citizenNameLengthNList.size());
     }
 
     //список жителей, у которых имя начинается с буквы <...>
@@ -153,5 +155,6 @@ public class PrintMenu {
             }
         }
         System.out.println("\nСписок жителей, у которых имя начинается с буквы " + letter + ":\n" + citizenNameFirstList);
+        System.out.println("\nКоличество данных жителей:  " + citizenNameFirstList.size());
     }
 }

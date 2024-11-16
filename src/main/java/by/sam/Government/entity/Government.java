@@ -61,10 +61,6 @@ public class Government {
         this.governmentCapitalName = governmentCapitalName;
     }
 
-    public int getRegionsCount() {
-        return regionsCount;
-    }
-
     public int getGovernmentPopulation() {
         return governmentPopulation;
     }
@@ -79,5 +75,16 @@ public class Government {
 
     public void setGovernmentSquare(int governmentSquare) {
         this.governmentSquare = governmentSquare;
+    }
+
+    @Override
+    public String toString() {
+        return "\nГосударство: " + governmentName +
+                "\nСтолица: " + governmentCapitalName +
+                "\nКоличество областей: " + getInstance().getRegionsList().size() +
+                "\nКоличество районов: " + service.getAllDistrictsArrayList().size() +
+                "\nКоличество городов: " + service.getAllCitiesArrayList().size() +
+                "\nКоличество жителей: " + service.getAllCitizensArrayList().size() +
+                "\n________________________________________";
     }
 }

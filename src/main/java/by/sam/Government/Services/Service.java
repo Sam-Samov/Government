@@ -60,4 +60,28 @@ public class Service {
         }
         return allCitizensArrayList;
     }
+
+    public ArrayList<City> getAllCitiesArrayList() {
+        ArrayList<City> allCitiesArrayList = new ArrayList<>();
+        ArrayList<Region> regionsList = Government.getInstance().getRegionsList();
+        for (int i = 0; i < regionsList.size(); i++) {
+            ArrayList<District> districtsList = Government.getInstance().getRegionsList().get(i).getDistrictsList();
+            for (int j = 0; j < districtsList.size(); j++) {
+                ArrayList<City> citiesList = Government.getInstance().getRegionsList().get(i).getDistrictsList().get(j).getCitiesList();
+                allCitiesArrayList.addAll(citiesList);
+            }
+        }
+        return allCitiesArrayList;
+    }
+
+    public ArrayList<District> getAllDistrictsArrayList() {
+        ArrayList<District> allDistrictsArrayList = new ArrayList<>();
+        ArrayList<District> districtsList;
+        ArrayList<Region> regionsList = Government.getInstance().getRegionsList();
+        for (int i = 0; i < regionsList.size(); i++) {
+            districtsList = Government.getInstance().getRegionsList().get(i).getDistrictsList();
+            allDistrictsArrayList.addAll(districtsList);
+        }
+        return allDistrictsArrayList;
+    }
 }

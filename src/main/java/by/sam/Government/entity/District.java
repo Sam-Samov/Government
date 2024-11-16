@@ -62,4 +62,12 @@ public class District {
     public void setDistrictSquare(int districtSquare) {
         this.districtSquare = districtSquare;
     }
+
+    @Override
+    public String toString() {
+        return "\nРайон: " + districtName +
+                "\nРайонный центр: " + districtCapitalName +
+                "\nКоличество городов: " + citiesCount +
+                "\n________________________________________";
+    }
 }
