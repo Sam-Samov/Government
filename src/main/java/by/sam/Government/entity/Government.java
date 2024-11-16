@@ -79,11 +79,12 @@ public class Government {
 
     @Override
     public String toString() {
-        return "\nГосударство: " + governmentName +
+        return "\nНазвание: " + governmentName +
                 "\nСтолица: " + governmentCapitalName +
                 "\nКоличество областей: " + getInstance().getRegionsList().size() +
                 "\nКоличество районов: " + service.getAllDistrictsArrayList().size() +
                 "\nКоличество городов: " + service.getAllCitiesArrayList().size() +
+                "\nПлощадь: " + service.getAllCitizensArrayList().size() +
                 "\nКоличество жителей: " + service.getAllCitizensArrayList().size() +
                 "\n________________________________________";
     }

@@ -18,7 +18,7 @@ public class City {
             Citizen citizen = new Citizen();
             citizensList.add(i, citizen);
             cityName = service.generateObjectName();
-            //citySquare = service.generateSquare(); см.PrintMenu printMethod3
+            citySquare = service.generateSquare();
         }
         this.citizensList = citizensList;
     }

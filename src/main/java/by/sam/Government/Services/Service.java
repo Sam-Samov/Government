@@ -2,9 +2,13 @@ package by.sam.Government.Services;
 
 import by.sam.Government.entity.*;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Service {
+    Service service = new Service();
 
     public char[] alphabetRusSmall() {
         char[] alphabet = new char[32];
@@ -47,29 +51,20 @@ public class Service {
 
     public ArrayList<Citizen> getAllCitizensArrayList() {
         ArrayList<Citizen> allCitizensArrayList = new ArrayList<>();
-        ArrayList<Region> regionsList = Government.getInstance().getRegionsList();
-        for (int i = 0; i < regionsList.size(); i++) {
-            ArrayList<District> districtsList = Government.getInstance().getRegionsList().get(i).getDistrictsList();
-            for (int j = 0; j < districtsList.size(); j++) {
-                ArrayList<City> citiesList = Government.getInstance().getRegionsList().get(i).getDistrictsList().get(j).getCitiesList();
-                for (int k = 0; k < citiesList.size(); k++) {
-                    ArrayList<Citizen> citizensList = Government.getInstance().getRegionsList().get(i).getDistrictsList().get(j).getCitiesList().get(k).getCitizensList();
-                    allCitizensArrayList.addAll(citizensList);
-                }
-            }
+        ArrayList<City> citiesList = getAllCitiesArrayList();
+        for (City city : citiesList) {
+            ArrayList<Citizen> citizensList = city.getCitizensList();
+            allCitizensArrayList.addAll(citizensList);
         }
         return allCitizensArrayList;
     }
 
     public ArrayList<City> getAllCitiesArrayList() {
         ArrayList<City> allCitiesArrayList = new ArrayList<>();
-        ArrayList<Region> regionsList = Government.getInstance().getRegionsList();
-        for (int i = 0; i < regionsList.size(); i++) {
-            ArrayList<District> districtsList = Government.getInstance().getRegionsList().get(i).getDistrictsList();
-            for (int j = 0; j < districtsList.size(); j++) {
-                ArrayList<City> citiesList = Government.getInstance().getRegionsList().get(i).getDistrictsList().get(j).getCitiesList();
-                allCitiesArrayList.addAll(citiesList);
-            }
+            ArrayList<District> districtsList = getAllDistrictsArrayList();
+        for (District district : districtsList) {
+            ArrayList<City> citiesList = district.getCitiesList();
+            allCitiesArrayList.addAll(citiesList);
         }
         return allCitiesArrayList;
     }
@@ -83,5 +78,75 @@ public class Service {
             allDistrictsArrayList.addAll(districtsList);
         }
         return allDistrictsArrayList;
+    }
+
+    /*Площадь государства здорового человека
+    public void printMethod3() {
+        System.out.println(Government.getInstance().getGovernmentSquare());
+    }*/
+
+    //"Площадь государства" курильщика
+    public double governmentSquare() {
+        int governmentSquare = 0;
+        ArrayList<City> cityArrayList = service.getAllCitiesArrayList();
+        for (City city : cityArrayList) {
+            governmentSquare += city.getCitySquare();
+        }
+        return governmentSquare;
+    }
+
+    //Список областных центров
+    public ArrayList<String> regionsCapitalsArrayList() {
+        ArrayList<Region> regionsArrayList = Government.getInstance().getRegionsList();
+        ArrayList<String> regionsCapitalsArrayList = new ArrayList<>();
+        for (Region region : regionsArrayList) {
+            regionsCapitalsArrayList.add(region.getRegionCapitalName());
+        }
+        return regionsCapitalsArrayList;
+    }
+
+     /*"средний возраст жителей" здорового человека
+    public void printMethod3() {
+        System.out.println(Government.getInstance().getGovernmentPopulation());
+    }*/
+
+    //"средний возраст жителей" курильщика
+    public double midAge() {
+        int countCitizens = service.getAllCitizensArrayList().size();
+        int sumCityAge = 0;
+        ArrayList<Citizen> citizensList = service.getAllCitizensArrayList();
+        for (Citizen citizen : citizensList)
+            sumCityAge += citizen.getCitizenAge();
+        DecimalFormatSymbols separator = new DecimalFormatSymbols();
+        separator.setDecimalSeparator('.');
+        DecimalFormat df = new DecimalFormat("#.#", separator);
+        return Double.parseDouble(df.format((double) sumCityAge / countCitizens));
+    }
+
+    //Список жителей, у которых имя состоит из <...> букв
+    public ArrayList<Citizen> citizenNameLengthN(int n) {
+        ArrayList<Citizen> citizensList = service.getAllCitizensArrayList();
+        ArrayList<Citizen> citizenNameLengthNList = new ArrayList<>();
+        for (Citizen citizen : citizensList) {
+            int citizenNameLengthCurrent = citizen.getCitizenName().length();
+            if (citizenNameLengthCurrent == n) {
+                citizenNameLengthNList.add(citizen);
+            }
+        }
+        return citizenNameLengthNList;
+    }
+
+    //Список жителей, у которых имя начинается с буквы <...>
+    public ArrayList<Citizen> citizenNameFirstList(String letter) {
+        ArrayList<Citizen> citizensList = service.getAllCitizensArrayList();
+        ArrayList<Citizen> citizenNameFirstList = new ArrayList<>();
+        String citizenNameFirstCurrent;
+        for (Citizen citizen : citizensList) {
+            citizenNameFirstCurrent = citizen.getCitizenName().substring(0,1);
+            if (citizenNameFirstCurrent.equals(letter)) {
+                citizenNameFirstList.add(citizen);
+            }
+        }
+        return citizenNameFirstList;
     }
 }
