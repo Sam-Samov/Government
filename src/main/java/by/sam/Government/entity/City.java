@@ -12,7 +12,7 @@ public class City {
 
     Service service = new Service();
     public City() {
-        cityPopulation = (int) (50 + Math.random() * 100);
+        cityPopulation = (int) (50 + Math.random() * 100000);
         ArrayList<Citizen> citizensList= new ArrayList<>();
         for (int i = 0; i < cityPopulation; i++) {
             Citizen citizen = new Citizen();

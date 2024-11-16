@@ -5,7 +5,7 @@ import by.sam.Government.entity.*;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
-import java.util.Locale;
+import java.util.Scanner;
 
 public class PrintMenu {
     Service service = new Service();
@@ -124,13 +124,34 @@ public class PrintMenu {
 
     //список жителей, у которых имя состоит из <...> букв
     public void printMethod6() {
-
-        System.out.println("\nСписок жителей, у которых имя состоит из <...> букв:");
+        System.out.println("Введите количество букв в имени:");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        ArrayList<Citizen> citizensList = service.getAllCitizensArrayList();
+        ArrayList<Citizen> citizenNameLengthNList = new ArrayList<>();
+        for (Citizen citizen : citizensList) {
+            int citizenNameLengthCurrent = citizen.getCitizenName().length();
+            if (citizenNameLengthCurrent == n) {
+                citizenNameLengthNList.add(citizen);
+            }
+        }
+        System.out.println("\nСписок жителей, у которых имя состоит из <...> букв:\n" + citizenNameLengthNList);
     }
 
     //список жителей, у которых имя начинается с буквы <...>
     public void printMethod7() {
-
-        System.out.println("\nСписок жителей, у которых имя начинается с буквы <...>: ");
+        System.out.println("Введите ЗАГЛАВНУЮ русскую букву:");
+        Scanner sc = new Scanner(System.in);
+        String letter = sc.nextLine();
+        ArrayList<Citizen> citizensList = service.getAllCitizensArrayList();
+        ArrayList<Citizen> citizenNameFirstList = new ArrayList<>();
+        String citizenNameFirstCurrent;
+        for (Citizen citizen : citizensList) {
+            citizenNameFirstCurrent = citizen.getCitizenName().substring(0,1);
+            if (citizenNameFirstCurrent.equals(letter)) {
+                citizenNameFirstList.add(citizen);
+            }
+        }
+        System.out.println("\nСписок жителей, у которых имя начинается с буквы " + letter + ":\n" + citizenNameFirstList);
     }
 }

@@ -26,6 +26,7 @@ public class Main {
         while (true) {
             menu.printMenu();
             menu.printMethod(sc.nextInt());
+            sc.nextLine();
         }
     }
 }
